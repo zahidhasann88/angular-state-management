@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-4" [ngStyle]="{'background-color': step == 1 ? 'skyblue' : 'white'}">Step 1</div>
+      <div class="col-4" [ngStyle]="{'background-color': step == 2 ? 'skyblue' : 'white'}">Step 2</div>
+      <div class="col-4" [ngStyle]="{'background-color': step == 3 ? 'skyblue' : 'white'}">Step 3</div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12">
+        <form [formGroup]="step1" (ngSubmit)="step1Next()" [ngStyle]="{'display': step == 1 ? 'block' : 'none'}">
+          <div class="row">
+            <div class="col-4">
+              <label class="required">First Name</label>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="First Name" maxlength="20" formControlName="firstName">
+              </div>
+            </div>
+            <div class="col-4">
+              <label>Last Name</label>
+              <input type="text" class="form-control" placeholder="Last Name" maxlength="20" formControlName="lastName">
+            </div>
+            <div class="col-4">
+              <label class="required">Date of Birth</label>
+              <div class="form-group">
+                <input type="date" class="form-control" placeholder="Dob" formControlName="dob">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="required">Phone</label>
+            <input  type="text" class="form-control" placeholder="Phone" maxlength="11" formControlName="phone"
+            onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+          </div>
+          <div class="form-group">
+            <label class="required">Gender</label>
+            <select class="form-control" formControlName="gender">
+              <option value="null">(Select Gender)</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div><br>
+          <button type="submit" class="btn btn-primary" [disabled]="step1.invalid">Next</button>
+        </form>
+        <form [formGroup]="step2" (ngSubmit)="step2Next()" [ngStyle]="{'display': step == 2 ? 'block' : 'none'}">
+          <div class="form-group">
+            <label class="required">Skill Name</label>
+            <input type="text" class="form-control" placeholder="Skill Name" maxlength="50" formControlName="skillName">
+          </div>
+          <div class="form-group">
+            <label class="required">Experience</label>
+            <input type="number" class="form-control" placeholder="Experience (in years)" formControlName="experience">
+          </div>
+          <div class="form-group">
+            <label class="required">Skill Level</label>
+            <select class="form-control" formControlName="skillLevel">
+              <option value="null">(Select Skill Level)</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </div><br>
+          <button type="submit" class="btn btn-primary" [disabled]="step2.invalid">Next</button>
+        </form>
+        <card [ngStyle]="{'display': step == 3 ? 'block' : 'none'}">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <span style="font-weight: bold;">First Name: </span> {{step3?.firstName}}
+            </li>
+            <li class="list-group-item">
+              <span style="font-weight: bold;">Last Name: </span> {{step3?.lastName}}
+            </li>
+            <li class="list-group-item">
+              <span style="font-weight: bold;">DOB: </span> {{step3?.dob}}
+            </li>
+            <li class="list-group-item">
+              <span style="font-weight: bold;">Phone: </span> {{step3?.phone}}
+            </li>
+            <li class="list-group-item">
+              <span style="font-weight: bold;">Gender: </span> {{step3?.gender}}
+            </li>
+            <li class="list-group-item">
+              <span style="font-weight: bold;">Skill Name: </span> {{step3?.skillName}}
+            </li>
+            <li class="list-group-item">
+              <span style="font-weight: bold;">Experience: </span> {{step3?.experience}}
+            </li>
+            <li class="list-group-item">
+              <span style="font-weight: bold;">Skills Level: </span> {{step3?.skillLevel}}
+            </li>
+          </ul>
+          <br>
+          <button type="button" class="btn btn-success" (click)="step3Next()">Submit</button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-primary" (click)="gotoList()">List</button>
+        </card>
+      </div>
+    </div>
+  </div>

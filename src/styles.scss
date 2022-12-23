@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+
+.required::after {
+    content: ' *';
+    font-family: 'Helvetica Neue Bold';
+    font-size: 0.8rem;
+    color: #ff0000;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+background-color: #1E558A !important;
+border: 1px solid #1E558A;
+color: #fff!important;
+border-radius: 2px;
+}
+
+.btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
+background-color: #198754 !important;
+border: 1px solid #198754;
+color: #fff!important;
+border-radius: 2px;
+}

@@ -1,0 +1,32 @@
+<div class="container mt-5">
+    <div class="text-right mb-3">
+        <button type="button" class="btn btn-success" (click)="gotoRegisterEmployee()">Register Employee</button>
+    </div>
+<table class="table table-bordered">
+    <thead class="thead-dark" style="background-color: grey; color: #fff;">
+        <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">DOB</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Skill Name</th>
+            <th scope="col">Experience</th>
+            <th scope="col">Skill Level</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of data?.employees">
+            <td>{{item?.firstName}}</td>
+            <td>{{item?.lastName}}</td>
+            <td>{{item?.dob}}</td>
+            <td>{{item?.phone}}</td>
+            <td>{{item?.gender}}</td>
+            <td>{{item?.skillName}}</td>
+            <td>{{item?.experience}}</td>
+            <td>{{item?.skillLevel}}</td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
